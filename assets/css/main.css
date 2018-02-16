@@ -27,6 +27,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+
 /* .batalla {
     background-color: tomato
 }
@@ -39,3 +40,7 @@ h1 {
 .movimiento {
     background-color: darkorange;
 } */
+
+.gif .row {
+    margin-right: -186px;
+}

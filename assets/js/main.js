@@ -38,54 +38,35 @@ $(document).ready(function() {
            <img src="${img}" alt="" class="circle responsive-img">
                 <h5 class="black-text light">${data.name}</h5>
                 </div>
-                <div class="col s12">
-                    <div class="col s6">
-                        <span class="black-text tipo"><strong>Tipo:</strong></span>
-                    </div>
-                    <div class="col s6">
-                        ${data.types[0].type.name}
-                    </div>
-                </div>
-                <div class="col s12">
-                    <div class="col s6">
-                        <span class="black-text habilidades"><strong>habilidad:</strong></span>
-                    </div>
-                    <div class="col s6">
-                        ${data.abilities[0].ability.name}
-                    </div>
-                </div>
-                <div class="col s12">
-                    <div class="col s6">
-                        <span class="batalla"><strong>Como lo ves en Batalla:</strong></span>
-                    </div>
-                    <div class="col s6">
-                        <img src=${data.sprites.back_default}>
-                    </div>
-                </div>
-                <div class="col s12">
-                    <div class="col s6">
-                        <span class="black-text forma"><strong>forma:</strong></span>
-                    </div>
-                    <div class="col s6">
-                        ${data.forms[0].name}
-                    </div>
-                </div>
-                <div class="col s12">
-                    <div class="col s6">
-                         <span class="black-text experiencia"><strong>Experiencia:</strong></span>
-                    </div>
-                    <div class="col s6">
-                        ${data.base_experience}
-                    </div>
-                </div>
-                <div class="col s12">
-                    <div class="col s6">
-                        <span class="black-text movimiento"><strong>movimientos:</strong></span>
-                    </div>
-                    <div class="col s6">
-                        ${data.moves[0].move.name}
-                    </div>
-                </div>
+                  <table class="centered bordered">
+
+                    <tbody>
+                        <tr style="border-bottom-color: #e6e00a;">
+                            <td>TIPO:</td>
+                            <td>${data.types[0].type.name}</td>
+                        </tr>
+                        <tr style="border-bottom-color: #e6e00a;">
+                            <td>HABILIDAD:</td>
+                            <td> ${data.abilities[0].ability.name}</td>
+                        </tr>
+                        <tr style="border-bottom-color: #e6e00a;">
+                            <td>COMO SE VE EN BATLLA:</td>
+                            <td><img src=${data.sprites.back_default}></td>
+                        </tr>
+                         <tr style="border-bottom-color: #e6e00a;">
+                            <td>FORMA:</td>
+                            <td>${data.forms[0].name}</td>
+                        </tr>
+                         <tr style="border-bottom-color: #e6e00a;">
+                            <td>EXPERIENCIA:</td>
+                            <td>${data.base_experience}</td>
+                        </tr>
+                         <tr style="border-bottom-color: #e6e00a;">
+                            <td>MOVIMIENTOS:</td>
+                            <td>${data.moves[0].move.name}</td>
+                        </tr>
+                    </tbody>
+                </table>
           </div>
         </div> `
         );
