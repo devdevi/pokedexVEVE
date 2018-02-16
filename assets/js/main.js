@@ -2,9 +2,7 @@
 $(document).ready(function() {
     $('.modal').modal();
 
-  $('#closeC').click(function() {
-   $('#myPoke').empty();
-  });
+
 
 
   function getRandomInt(min, max) {
@@ -82,8 +80,10 @@ $(document).ready(function() {
   search.addEventListener('click', function() {
 
     const gif = document.getElementById('textarea1').value;
-    document.getElementById('textarea1').value ='';
+    document.getElementById('textarea1').value = '';
     const myGif = document.getElementById('myGif');
+    const myPoke = document.getElementById('myPoke');
+    myPoke.innerHTML = '';
     fetch(`https://pokeapi.co/api/v2/pokemon/${gif}/`)
       .then(function(response) {
         // Turns the the JSON into a JS object
@@ -93,12 +93,8 @@ $(document).ready(function() {
         console.log(data); 
         // Let's make some HTML!
         let html = ` 
-                <div class="col s10">
+                <div class="col s12">
                 <div class="card-panel grey lighten-5 ">
-
-                  <div class="col s1 offset-s11 left-align">
-                   <a class=" btn-flat  waves-effect waves-light pulse " id="closeC" type="submit" name="action">
-                   <i class="material-icons yellow-text  text-accent-4">cancel</i></a></div>
                 <div class="row valign-wrapper">
                 <div class="col s12 header-card ">
                 <img src="https://pokeapi.co/media/img/${data.id}.png" class=" yellow accent-4 circle responsive-img">
@@ -158,4 +154,3 @@ $(document).ready(function() {
 //          </div>   
 //          </div>
 //      </div>
-
