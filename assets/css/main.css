@@ -1,18 +1,41 @@
-body{
-	font-family: 'Lato', sans-serif ;
+body {
+    font-family: 'Lato', sans-serif;
 }
+
 #search_btn {
-	margin-top: 2em;
+    margin-top: 2em;
 }
 
-.logo{
-	width: 15%;
+.logo {
+    width: 20%;
 }
 
-h5{
-	text-transform: uppercase;
+h5 {
+    text-transform: uppercase;
 }
-h1{
-	font-weight: 900;
-	letter-spacing: -5px;
+
+h1 {
+    font-weight: 900;
+    letter-spacing: -5px;
 }
+
+.tipo {
+    background-color: aqua
+}
+
+.modal-content .s12 {
+    margin-bottom: 20px;
+}
+
+/* .batalla {
+    background-color: tomato
+}
+.forma{
+    background-color: violet
+}
+.experiencia {
+    background-color: chartreuse;
+}
+.movimiento {
+    background-color: darkorange;
+} */
