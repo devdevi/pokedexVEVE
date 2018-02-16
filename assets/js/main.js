@@ -2,12 +2,16 @@
 $(document).ready(function() {
     $('.modal').modal();
 
+  $('#closeC').click(function() {
+   $('#myPoke').empty();
+  });
+
 
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 18; i++) {
     let num = getRandomInt(0, 100);
 
     
@@ -24,44 +28,44 @@ $(document).ready(function() {
         // Let's make some HTML!
         $('#myGif').append(
           ` <a class="  modal-trigger" href="#modal${data.id}">
-           <div class="col s2">
+           <div class="col s6 m2">
           <img src="${img}" alt="" class="circle responsive-img" >
           <h5 class="black-text light bordered">${data.name}</h5>
           <div class="col s12">
-          <span class="black-text">Tipo: ${data.types[0].type.name}</span>
+          <span class="black-text light">TIPO:${data.types[0].type.name}</span>
           </div>
             </div>
           </a>
           <div id="modal${data.id}" class="modal modal-fixed-footer">
           <div class="modal-content">
-          <div class"col s12 header-card" style="background-color: #fbff07;">
-           <img src="${img}" alt="" class="circle responsive-img">
+          <div class"col s12 header-card yellow accent-4 ">
+           <img src="${img}" alt="" class=" yellow accent-4 circle responsive-img">
                 <h5 class="black-text light">${data.name}</h5>
                 </div>
                   <table class="centered bordered">
 
                     <tbody>
-                        <tr style="border-bottom-color: #e6e00a;">
+                        <tr style="border-bottom-color: #ffd600;">
                             <td>TIPO:</td>
                             <td>${data.types[0].type.name}</td>
                         </tr>
-                        <tr style="border-bottom-color: #e6e00a;">
+                        <tr style="border-bottom-color: #ffd600;">
                             <td>HABILIDAD:</td>
                             <td> ${data.abilities[0].ability.name}</td>
                         </tr>
-                        <tr style="border-bottom-color: #e6e00a;">
+                        <tr style="border-bottom-color: #ffd600;">
                             <td>COMO SE VE EN BATLLA:</td>
                             <td><img src=${data.sprites.back_default}></td>
                         </tr>
-                         <tr style="border-bottom-color: #e6e00a;">
+                         <tr style="border-bottom-color: #ffd600;">
                             <td>FORMA:</td>
                             <td>${data.forms[0].name}</td>
                         </tr>
-                         <tr style="border-bottom-color: #e6e00a;">
+                         <tr style="border-bottom-color: #ffd600;">
                             <td>EXPERIENCIA:</td>
                             <td>${data.base_experience}</td>
                         </tr>
-                         <tr style="border-bottom-color: #e6e00a;">
+                         <tr style="border-bottom-color: #ffd600;">
                             <td>MOVIMIENTOS:</td>
                             <td>${data.moves[0].move.name}</td>
                         </tr>
@@ -78,6 +82,7 @@ $(document).ready(function() {
   search.addEventListener('click', function() {
 
     const gif = document.getElementById('textarea1').value;
+    document.getElementById('textarea1').value ='';
     const myGif = document.getElementById('myGif');
     fetch(`https://pokeapi.co/api/v2/pokemon/${gif}/`)
       .then(function(response) {
@@ -88,25 +93,52 @@ $(document).ready(function() {
         console.log(data); 
         // Let's make some HTML!
         let html = ` 
+                <div class="col s10">
+                <div class="card-panel grey lighten-5 ">
 
-                  <div class="col s10">
-                  <div class="card-panel grey lighten-5 ">
-                  <div class="row valign-wrapper">
-                  <div class="col s2">
-                  <img src="${data.sprites.front_shiny}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-                  </div>
-                  <div class="col s10 left-align">
-                  <span class="black-text">
-                  <h5 class="black-text light">${data.name} </h5>
-                  <span class="black-text">Tipo: ${data.types[0].type.name} </span>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dicta veniam provident velit fugit eum sapiente</p>
-                  This is a square image. Add the "circle" class to it to make it appear circular.
-                  </span>
-                  </div>
-                  </div>
-                  </div>
-                  </div>
-                  <hr>
+                  <div class="col s1 offset-s11 left-align">
+                   <a class=" btn-flat  waves-effect waves-light pulse " id="closeC" type="submit" name="action">
+                   <i class="material-icons yellow-text  text-accent-4">cancel</i></a></div>
+                <div class="row valign-wrapper">
+                <div class="col s12 header-card ">
+                <img src="https://pokeapi.co/media/img/${data.id}.png" class=" yellow accent-4 circle responsive-img">
+                <h5 class="black-text light">${data.name}</h5>
+                
+                <table class="centered bordered">
+
+                <tbody>
+                <tr style="border-bottom-color: #ffd600;">
+                <td>TIPO:</td>
+                <td>${data.types[0].type.name}</td>
+                </tr>
+                <tr style="border-bottom-color: #ffd600;">
+                <td>HABILIDAD:</td>
+                <td> ${data.abilities[0].ability.name}</td>
+                </tr>
+                <tr style="border-bottom-color: #ffd600;">
+                <td>COMO SE VE EN BATLLA:</td>
+                <td><img src=${data.sprites.back_default}></td>
+                </tr>
+                <tr style="border-bottom-color: #ffd600;">
+                <td>FORMA:</td>
+                <td>${data.forms[0].name}</td>
+                </tr>
+                <tr style="border-bottom-color: #ffd600;">
+                <td>EXPERIENCIA:</td>
+                <td>${data.base_experience}</td>
+                </tr>
+                <tr style="border-bottom-color: #ffd600;">
+                <td>MOVIMIENTOS:</td>
+                <td>${data.moves[0].move.name}</td>
+                </tr>
+                </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <hr>
                `;
         myPoke.innerHTML = html;
       });
@@ -126,3 +158,4 @@ $(document).ready(function() {
 //          </div>   
 //          </div>
 //      </div>
+
